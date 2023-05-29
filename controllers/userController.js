@@ -14,6 +14,26 @@ exports.getAllUsers = async (req, res, next) => {
     }
 }
 
+exports.singleUser = async (req, res, next) => {
+    const userId = await req.params.userId;
+    try {
+
+        const user = await User.findById(userId);
+        if (!user) {
+            res.status(400).json({message: "Wrong user!"});
+       }
+
+       res.status(200).json({
+        message:"Successfully get user",
+        user
+    });
+        
+    } catch (err) {
+        console.log(err)
+        res.status(401).json({message: "You can't delete"});
+    }
+}
+
 exports.updateUser = async (req, res, next) => {
     const userId = await req.params.userId;
 
@@ -36,5 +56,27 @@ exports.updateUser = async (req, res, next) => {
     } catch (err) {
         console.log(err)
         res.status(401).json({message: "You can't update"});
+    }
+}
+
+exports.deleteUser = async (req, res, next) => {
+    const userId = await req.params.userId;
+    try {
+
+        const user = await User.findById(userId);
+        if (!user) {
+            res.status(400).json({message: "Wrong user!"});
+       }
+
+       const deletedUser = await User.findByIdAndDelete(userId)
+
+       res.status(200).json({
+        message:"User deleted successfully",
+        deletedUser
+    });
+        
+    } catch (err) {
+        console.log(err)
+        res.status(401).json({message: "You can't delete"});
     }
 }
