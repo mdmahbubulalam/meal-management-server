@@ -1,6 +1,6 @@
 const { default: mongoose } = require("mongoose");
 
-const mealSchema = new mongoose.Schema({
+const expenseSchema = new mongoose.Schema({
     userName : {
         type : String,
     },
@@ -13,7 +13,7 @@ const mealSchema = new mongoose.Schema({
         type : String,
     },
 
-    mealCount : {
+    expenses : {
         type : Number,
         required : true,
     },
@@ -23,6 +23,6 @@ const mealSchema = new mongoose.Schema({
 
 );
 
-const mealModel = mongoose.model('Meal', mealSchema);
+const expenseModel = mongoose.model('Expense', expenseSchema);
 
-module.exports = mealModel;
+module.exports = expenseModel;

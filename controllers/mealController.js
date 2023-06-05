@@ -7,7 +7,6 @@ exports.addMeal = async (req, res, next) => {
         userEmail,
         monthName,
         mealCount,
-        expense
     } = req.body;
 
     try{
@@ -16,7 +15,6 @@ exports.addMeal = async (req, res, next) => {
             userEmail,
             monthName,
             mealCount,
-            expense, 
         })
 
         res.status(201).json({
@@ -76,7 +74,7 @@ exports.updateMeal = async (req, res, next) => {
 
        const updateMeal = await Meal.findByIdAndUpdate(
         mealId, 
-        {mealCount:req.body.mealCount,expense:req.body.expense}, 
+        {mealCount:req.body.mealCount}, 
         {new : true} 
         )
 

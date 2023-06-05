@@ -15,10 +15,31 @@ exports.getAllUsers = async (req, res, next) => {
 }
 
 exports.singleUser = async (req, res, next) => {
+    
     const userId = await req.params.userId;
     try {
 
         const user = await User.findById(userId);
+        if (!user) {
+            res.status(400).json({message: "Wrong user!"});
+       }
+
+       res.status(200).json({
+        message:"Successfully get user",
+        user
+    });
+        
+    } catch (err) {
+        console.log(err)
+        res.status(401).json({message: "You can't delete"});
+    }
+}
+
+exports.findUserByEmail = async (req, res, next) => {
+    const email = await req.query.email;
+    try {
+
+        const user = await User.find({email: email});
         if (!user) {
             res.status(400).json({message: "Wrong user!"});
        }
