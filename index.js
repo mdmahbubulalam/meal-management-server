@@ -19,7 +19,7 @@ app.use('/api/auth', signInRoute);
 app.use('/api/users', userRoute);
 app.use('/api/months', monthRoute);
 app.use('/api/meals', mealRoute);
-app.use('/api/expense', expenseRoute);
+//app.use('/api/expense', expenseRoute);
 
 
 app.get('/', (req, res) => {

@@ -13,6 +13,11 @@ const mealSchema = new mongoose.Schema({
         type : String,
     },
 
+    expense : {
+        type : Number,
+        required : true,
+    },
+
     mealCount : {
         type : Number,
         required : true,

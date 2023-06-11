@@ -1,28 +1,28 @@
-const { default: mongoose } = require("mongoose");
+// const { default: mongoose } = require("mongoose");
 
-const expenseSchema = new mongoose.Schema({
-    userName : {
-        type : String,
-    },
+// const expenseSchema = new mongoose.Schema({
+//     userName : {
+//         type : String,
+//     },
 
-    userEmail : {
-        type : String,
-    },
+//     userEmail : {
+//         type : String,
+//     },
 
-    monthName : {
-        type : String,
-    },
+//     monthName : {
+//         type : String,
+//     },
 
-    expenses : {
-        type : Number,
-        required : true,
-    },
-},
+//     expenses : {
+//         type : Number,
+//         required : true,
+//     },
+// },
 
-{ timestamps: true }
+// { timestamps: true }
 
-);
+// );
 
-const expenseModel = mongoose.model('Expense', expenseSchema);
+// const expenseModel = mongoose.model('Expense', expenseSchema);
 
-module.exports = expenseModel;
+// module.exports = expenseModel;
