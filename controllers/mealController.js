@@ -42,13 +42,13 @@ exports.getAllMeal = async (req, res, next) => {
     }
 }
 
-exports.singleMeal = async (req, res, next) => {
-    const mealId = await req.params.mealId;
+exports.userMealInfo = async (req, res, next) => {
+    const {email, monthName} = await req.query;
     
     try {
 
-        const meal = await Meal.findById(mealId)
-        console.log(meal.userName)
+        const meal = await Meal.find({userEmail:email, monthName:monthName})
+        
         if (!meal) {
             res.status(400).json({message: "Wrong meal!"});
        }
