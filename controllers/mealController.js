@@ -64,6 +64,28 @@ exports.userMealInfo = async (req, res, next) => {
     }
 }
 
+exports.currentMonthMealInfo = async (req, res, next) => {
+    const { monthName} = await req.query;
+    
+    try {
+
+        const meal = await Meal.find({monthName:monthName})
+        
+        if (!meal) {
+            res.status(400).json({message: "Wrong meal!"});
+       }
+
+       res.status(200).json({
+        message:"Successfully get meal",
+        meal
+    });
+        
+    } catch (err) {
+        console.log(err)
+        res.status(401).json({message: "You can't get the meal"});
+    }
+}
+
 exports.updateMeal = async (req, res, next) => {
     const mealId = await req.params.mealId;
 
