@@ -7,7 +7,8 @@ exports.addMeal = async (req, res, next) => {
         userEmail,
         monthName,
         mealCount,
-        expense
+        expense,
+        date
     } = req.body;
 
     try{
@@ -16,7 +17,8 @@ exports.addMeal = async (req, res, next) => {
             userEmail,
             monthName,
             mealCount,
-            expense
+            expense,
+            date
         })
 
         res.status(201).json({
