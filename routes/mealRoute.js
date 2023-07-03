@@ -6,7 +6,7 @@ mealRoute.get('/allMeals', getAllMeal)
 mealRoute.post('/addMeal', addMeal)
 mealRoute.get('/userMealInfo', userMealInfo)
 mealRoute.get('/currentMonthMealInfo', currentMonthMealInfo)
-//mealRoute.get('/:mealId', singleMeal)
+mealRoute.get('/:mealId', singleMeal)
 mealRoute.put('/:mealId', updateMeal)
 mealRoute.delete('/:mealId', deleteMeal)
 module.exports = mealRoute;

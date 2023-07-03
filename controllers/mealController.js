@@ -44,25 +44,25 @@ exports.getAllMeal = async (req, res, next) => {
     }
 }
 
-// exports.singleMeal = async (req, res, next) => {
-//     const mealId = await req.params.mealId;
-//     try {
+exports.singleMeal = async (req, res, next) => {
+    const mealId = await req.params.mealId;
+    try {
 
-//         const meal = await Meal.findById(mealId)
-//         if (!meal) {
-//             res.status(400).json({message: "Wrong meal!"});
-//        }
+        const meal = await Meal.findById(mealId)
+        if (!meal) {
+            res.status(400).json({message: "Wrong meal!"});
+       }
 
-//        res.status(200).json({
-//         message:"Successfully get meal",
-//         meal
-//     });
+       res.status(200).json({
+        message:"Successfully get meal",
+        meal
+    });
         
-//     } catch (err) {
-//         console.log(err)
-//         res.status(401).json({message: "You can't get the meal"});
-//     }
-// }
+    } catch (err) {
+        console.log(err)
+        res.status(401).json({message: "You can't get the meal"});
+    }
+}
 
 exports.userMealInfo = async (req, res, next) => {
     const {email, monthName} = await req.query;
@@ -120,8 +120,7 @@ exports.updateMeal = async (req, res, next) => {
 
        const updateMeal = await Meal.findByIdAndUpdate(
         mealId, 
-        {expense:req.body.expense}, 
-        {mealCount:req.body.mealCount}, 
+        req.body, 
         {new : true} 
         )
 
